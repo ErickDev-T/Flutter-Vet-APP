@@ -18,7 +18,7 @@ class CategoryModel {
 
     categories.add(
       CategoryModel(
-        vector: 'assets/vectors/pill.svg',
+        vector: 'assets/vectors/pil.svg',
         isSelected: false,
       ),
     );
@@ -32,7 +32,7 @@ class CategoryModel {
 
     categories.add(
       CategoryModel(
-        vector: 'assets/vectors/prenant.svg',
+        vector: 'assets/vectors/pregnant.svg',
         isSelected: false,
       ),
     );

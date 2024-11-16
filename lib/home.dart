@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vet_app_html/models/category.dart';
+import 'package:vet_app_html/models/dortor.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final List<CategoryModel> categoriesData = CategoryModel.getCategories();
+  final List<DoctorModel> doctorsData = DoctorModel.getDoctors();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          header(),
-          categories(),
-        ],
+        children: [header(), categories(), doctors()],
       ),
     );
   }
@@ -41,33 +47,40 @@ class HomePage extends StatelessWidget {
           margin: const EdgeInsets.all(16),
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
-            itemBuilder: (contex, index) {
-              return Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                        color: categoriesData[index].isSelected
-                            ? const Color(0xff050618).withOpacity(0.45)
-                            : const Color(0xff050618).withOpacity(0.05),
-                        offset: const Offset(0, 4),
-                        blurRadius: 25)
-                  ],
-                  color: categoriesData[index].isSelected
-                      ? const Color(0xff51A8ff)
-                      : Colors.white,
-                ),
-                child: SvgPicture.asset(
-                  categoriesData[index].vector,
-                  fit: BoxFit.none,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  for (var item in categoriesData) {
+                    item.isSelected = false;
+                  }
+                  categoriesData[index].isSelected = true;
+                  setState(() {});
+                },
+                child: Container(
+                  width: 75,
+                  height: 75,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                          color: categoriesData[index].isSelected
+                              ? const Color(0xff050618).withOpacity(0.2)
+                              : const Color(0xff050618).withOpacity(0.05),
+                          offset: const Offset(0, 4),
+                          blurRadius: 25)
+                    ],
+                    color: categoriesData[index].isSelected
+                        ? const Color(0xff51A8ff)
+                        : Colors.white,
+                  ),
+                  child: SvgPicture.asset(
+                    categoriesData[index].vector,
+                    fit: BoxFit.none,
+                  ),
                 ),
               );
             },
-            separatorBuilder: (contex, index) => const SizedBox(
-              width: 50,
-            ),
+            separatorBuilder: (contex, index) => const SizedBox(width: 50),
             itemCount: categoriesData.length,
           ),
         )
@@ -134,6 +147,41 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget doctors() {
+    return ListView.separated(
+      shrinkWrap: true,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      itemBuilder: (context, index) {
+        return Container(
+          height: 100,
+          child: Row(
+            children: [
+              Container(
+                width: 90,
+                decoration: BoxDecoration(
+                    color: doctorsData[index].imageBox,
+                    borderRadius: BorderRadius.circular(16),
+                    image: DecorationImage(
+                        image: AssetImage(doctorsData[index].image))),
+              )
+            ],
+          ),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                    color: const Color(0xff51A8FF).withOpacity(0.07),
+                    offset: const Offset(0, 4),
+                    blurRadius: 20)
+              ]),
+        );
+      },
+      separatorBuilder: (context, index) => const SizedBox(height: 15),
+      itemCount: doctorsData.length,
     );
   }
 }
