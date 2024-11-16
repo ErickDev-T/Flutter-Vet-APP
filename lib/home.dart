@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             left: 16,
           ),
           child: Text(
-            'Categories',
+            'Categorias',
             style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 18,
@@ -157,18 +157,6 @@ class _HomePageState extends State<HomePage> {
       itemBuilder: (context, index) {
         return Container(
           height: 100,
-          child: Row(
-            children: [
-              Container(
-                width: 90,
-                decoration: BoxDecoration(
-                    color: doctorsData[index].imageBox,
-                    borderRadius: BorderRadius.circular(16),
-                    image: DecorationImage(
-                        image: AssetImage(doctorsData[index].image))),
-              )
-            ],
-          ),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: Colors.white,
@@ -178,6 +166,62 @@ class _HomePageState extends State<HomePage> {
                     offset: const Offset(0, 4),
                     blurRadius: 20)
               ]),
+          child: Row(
+            children: [
+              Container(
+                width: 90,
+                decoration: BoxDecoration(
+                  color: doctorsData[index].imageBox,
+                  borderRadius: BorderRadius.circular(16),
+                  image: DecorationImage(
+                    image: AssetImage(doctorsData[index].image),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      doctorsData[index].name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      doctorsData[index].specialties.first,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontSize: 12,
+                      ),
+                    ),
+                    const Spacer(),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                          size: 18,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          doctorsData[index].score.toString(),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                            fontSize: 12,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         );
       },
       separatorBuilder: (context, index) => const SizedBox(height: 15),

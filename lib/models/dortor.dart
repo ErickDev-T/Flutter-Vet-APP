@@ -17,19 +17,21 @@ class DoctorModel {
     List<DoctorModel> doctors = [];
     doctors.add(
       DoctorModel(
-        name: 'Dra.Kem',
+        name: 'Dr. Kemely Rosario',
         image: 'assets/images/jenny.png',
-        imageBox: const Color(0xffFFA340).withOpacity(0.75),
+        imageBox: const Color.fromARGB(255, 255, 163, 64).withOpacity(0.75),
         specialties: ['Pelaje', 'Dentista'],
         score: 4.8,
       ),
     );
-    DoctorModel(
-      name: 'Dra.Yesk',
-      image: 'assets/images/kritin.png',
-      imageBox: const Color(0xffFFA340).withOpacity(0.75),
-      specialties: ['Infecciones ', 'Cirujana'],
-      score: 4.1,
+    doctors.add(
+      DoctorModel(
+        name: 'Dra. Yesyskaira Cordero',
+        image: 'assets/images/kristin.png',
+        imageBox: const Color.fromARGB(136, 62, 209, 214).withOpacity(0.75),
+        specialties: ['Infecciones ', 'Cirujana'],
+        score: 4.1,
+      ),
     );
     return doctors;
   }
