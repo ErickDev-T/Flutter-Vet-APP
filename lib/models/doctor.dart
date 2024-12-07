@@ -33,7 +33,7 @@ class DoctorModel {
           ],
           score: 4.5,
           bio:
-              'Dr. Yeyskaira,  es dentista en Republica Dominicana  , tiene 20 años de experiencia.',
+              'Dr. Yeyskaira, es dentista en República Dominicana, tiene 20 años de experiencia.',
           calendar: [
             CalendarModel(dayNumber: 14, dayName: 'Lunes', isSelected: false),
             CalendarModel(dayNumber: 15, dayName: 'Martes', isSelected: false),
@@ -58,7 +58,7 @@ class DoctorModel {
           'Internista Veterinario'
         ],
         score: 4.8,
-        bio: 'Dr. Kemely,  dentista con 20 años de experiencia.',
+        bio: 'Dr. Kemely, dentista con 20 años de experiencia.',
         calendar: [
           CalendarModel(dayNumber: 14, dayName: 'Lunes', isSelected: false),
           CalendarModel(dayNumber: 15, dayName: 'Jueves', isSelected: false),
