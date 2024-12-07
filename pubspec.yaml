@@ -1,38 +1,35 @@
-name: vet_app_html
+name: medical
 description: "A new Flutter project."
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none' 
 
 
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.3
+  sdk: '>=3.4.3 <4.0.0'
 
 
 dependencies:
   flutter:
     sdk: flutter
 
-
-
-  cupertino_icons: ^1.0.8
-
+  cupertino_icons: ^1.0.6
   flutter_svg: ^2.0.10+1
-
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^4.0.0
+  flutter_lints: ^3.0.0
 
 flutter:
+
   uses-material-design: true
 
   assets:
-   - assets/vectors/
-   - assets/images/
+    - assets/vectors/
+    - assets/images/
 
   fonts:
     - family: Poppins
@@ -76,4 +73,4 @@ flutter:
           weight: 900
         - asset: assets/fonts/Poppins-BlackItalic.ttf
           weight: 900
-          style: italic            
+          style: italic                    

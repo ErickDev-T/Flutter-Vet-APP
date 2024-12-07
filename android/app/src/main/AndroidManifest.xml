@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="vet_app_html"
+        android:label="medical"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

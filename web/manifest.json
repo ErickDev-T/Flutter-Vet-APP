@@ -1,6 +1,6 @@
 {
-    "name": "vet_app_html",
-    "short_name": "vet_app_html",
+    "name": "medical",
+    "short_name": "medical",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

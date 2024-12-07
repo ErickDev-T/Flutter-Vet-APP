@@ -1,4 +1,4 @@
-package com.example.vet_app_html
+package com.example.medical
 
 import io.flutter.embedding.android.FlutterActivity
 
